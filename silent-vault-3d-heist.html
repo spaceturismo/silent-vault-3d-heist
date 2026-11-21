@@ -135,7 +135,7 @@ function mkTex(k){const c=document.createElement("canvas");c.width=c.height=128;
   const t=new THREE.CanvasTexture(c);t.wrapS=t.wrapT=THREE.RepeatWrapping;return t}
 const glowTex=(()=>{const c=document.createElement("canvas");c.width=c.height=64;const x=c.getContext("2d"),r=x.createRadialGradient(32,32,0,32,32,32);r.addColorStop(0,"rgba(255,255,255,1)");r.addColorStop(1,"rgba(255,255,255,0)");x.fillStyle=r;x.fillRect(0,0,64,64);return new THREE.CanvasTexture(c)})();
 const renderer=new THREE.WebGLRenderer({antialias:true});
-renderer.setSize(innerWidth,innerHeight);renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.setSize(innerWidth,innerHeight);renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));
 document.body.prepend(renderer.domElement);
 const scene=new THREE.Scene();scene.background=new THREE.Color(0x0a0c10);scene.fog=new THREE.Fog(0x0a0c10,6,42);
 const cam=new THREE.PerspectiveCamera(75,innerWidth/innerHeight,.1,100);cam.rotation.order="YXZ";
